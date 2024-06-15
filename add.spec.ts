@@ -26,5 +26,14 @@ test("should handle new lines between numbers", () => {
 });
 
 test("should handle custom delimiters at the beginning of string", () => {
-  expect(add("//;\n1;2")).toBe(2);
+  expect(add("//;\n1;2")).toBe(3);
+});
+
+test("should handle invalid input string", () => {
+  expect(() => add("1;2//1#2.1,,2,3;")).toThrow(
+    "Invalid input string provided"
+  );
+  expect(() => add("//;\n1;2//1#2.1,,2,3;")).toThrow(
+    "Invalid input string provided"
+  );
 });
