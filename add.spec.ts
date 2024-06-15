@@ -25,6 +25,6 @@ test("should handle new lines between numbers", () => {
   expect(add("0,1,0,2,,,3\n\n\n4,5,6\n7,,10\n,\n\n,,")).toBe(38);
 });
 
-test("should handle custom delimers at the beginning of string", () => {
+test("should handle custom delimiters at the beginning of string", () => {
   expect(add("//;\n1;2")).toBe(2);
 });
