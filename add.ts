@@ -7,9 +7,17 @@ const add = (numbers: string) => {
   }
   let sum = 0;
   const nums = numbers
-    .replace(/\n/g, ",") // treat newlines as default delimiter (comma)
+    .replace(/\n/g, delimiter) // treat newlines as default delimiter (comma)
+    .replace(/\/\//g, delimiter)
     .split(delimiter)
-    .map((item) => (!isNaN(Number(item)) ? Number(item) : 0));
+    .map((item) => {
+      if (isNaN(Number(item))) {
+        throw new Error("Invalid input string provided");
+      }
+      return Number(item);
+    });
+
+  console.log(nums);
   for (let i = 0; i < nums.length; i++) {
     sum += nums[i];
   }
