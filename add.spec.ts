@@ -41,9 +41,7 @@ test("should handle invalid input string", () => {
 test("should handle negative numbers", () => {
   expect(() => add("1,2,-3")).toThrow("negative numbers not allowed -3");
   expect(() => add("//;\n1;2;-3")).toThrow("negative numbers not allowed -3");
-  expect(() => add("1,2,-3, -2")).toThrow(
-    "negative numbers not allowed -3, -2"
-  );
+  expect(() => add("1,2,-3, -2")).toThrow("negative numbers not allowed -3,-2");
   expect(() => add("//;\n1;2;-3;-2")).toThrow(
     "negative numbers not allowed -3,-2"
   );
